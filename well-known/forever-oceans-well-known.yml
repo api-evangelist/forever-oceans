@@ -1,0 +1,110 @@
+generated: '2026-08-16'
+method: probed
+source: http://foreveroceans.com/.well-known/*
+host: http://foreveroceans.com
+note: >-
+  NO WELL-KNOWN DOCUMENTS ARE SERVED. This is a recorded absence, not a presence.
+  foreveroceans.com refuses TLS outright (connection refused on port 443), so every
+  path below was probed over plain HTTP. The host answers HTTP 200 to EVERY path with
+  the identical 2,362-byte Gandi registrar parking page ("This domain name has been
+  registered with Gandi.net. It is currently parked by the owner." / "foreveroceans.com
+  is unavailable") — a soft-404 catch-all, not a document. Each 200 below is therefore
+  recorded as a MISS with document: false, and NO WellKnown, SecurityTxt, APICatalog or
+  AgentCard pointer is emitted in apis.yml. Forever Oceans Corporation entered
+  restructuring/liquidation in November 2024 and its web presence is gone.
+tls:
+  https_reachable: false
+  detail: 'connect to 217.70.184.38 port 443: Connection refused'
+documents: []
+probes:
+- path: /.well-known/security.txt
+  status: 200
+  document: false
+  body_bytes: 2362
+  content_type: text/html
+  verdict: soft-404 registrar parking page
+- path: /.well-known/openid-configuration
+  status: 200
+  document: false
+  body_bytes: 2362
+  content_type: text/html
+  verdict: soft-404 registrar parking page
+- path: /.well-known/oauth-authorization-server
+  status: 200
+  document: false
+  body_bytes: 2362
+  content_type: text/html
+  verdict: soft-404 registrar parking page
+- path: /.well-known/oauth-protected-resource
+  status: 200
+  document: false
+  body_bytes: 2362
+  content_type: text/html
+  verdict: soft-404 registrar parking page
+- path: /.well-known/api-catalog
+  status: 200
+  document: false
+  body_bytes: 2362
+  content_type: text/html
+  verdict: soft-404 registrar parking page
+- path: /.well-known/ai-plugin.json
+  status: 200
+  document: false
+  body_bytes: 2362
+  content_type: text/html
+  verdict: soft-404 registrar parking page
+- path: /.well-known/agent-card.json
+  status: 200
+  document: false
+  body_bytes: 2362
+  content_type: text/html
+  verdict: soft-404 registrar parking page; A2A card REJECTED (HTML body, not a JSON AgentCard)
+- path: /.well-known/agent.json
+  status: 200
+  document: false
+  body_bytes: 2362
+  content_type: text/html
+  verdict: soft-404 registrar parking page; legacy A2A card REJECTED (HTML body)
+x-contract-discovery:
+  note: >-
+    STEP 0b contract discovery was run in full before recording "no machine-readable
+    contract". Every candidate path returns the same parking shell; no api/docs/developer
+    subdomain resolves in DNS; no first-party package exists in any registry.
+  rest_openapi:
+  - {url: 'http://foreveroceans.com/openapi.json', status: 200, parses_as_openapi: false, body: html-parking-shell}
+  - {url: 'http://foreveroceans.com/openapi.yaml', status: 200, parses_as_openapi: false, body: html-parking-shell}
+  - {url: 'http://foreveroceans.com/swagger.json', status: 200, parses_as_openapi: false, body: html-parking-shell}
+  - {url: 'http://foreveroceans.com/v1/openapi.json', status: 200, parses_as_openapi: false, body: html-parking-shell}
+  - {url: 'http://foreveroceans.com/api-docs', status: 200, parses_as_openapi: false, body: html-parking-shell}
+  - {url: 'http://foreveroceans.com/docs', status: 200, parses_as_openapi: false, body: html-parking-shell}
+  - {url: 'http://foreveroceans.com/redoc', status: 200, parses_as_openapi: false, body: html-parking-shell}
+  graphql:
+  - {url: 'http://foreveroceans.com/graphql', status: 200, introspection: false, body: html-parking-shell}
+  mcp:
+  - {url: 'http://foreveroceans.com/mcp', status: 200, tools_list: false, body: html-parking-shell}
+  llms_txt:
+  - {url: 'http://foreveroceans.com/llms.txt', status: 200, document: false, body: html-parking-shell}
+  subdomains_dns:
+  - {host: api.foreveroceans.com, a_record: null, result: NXDOMAIN}
+  - {host: docs.foreveroceans.com, a_record: null, result: NXDOMAIN}
+  - {host: developer.foreveroceans.com, a_record: null, result: NXDOMAIN}
+  - {host: app.foreveroceans.com, a_record: null, result: NXDOMAIN}
+  - {host: mcp.foreveroceans.com, a_record: null, result: NXDOMAIN}
+  - {host: status.foreveroceans.com, a_record: null, result: NXDOMAIN}
+  - {host: trust.foreveroceans.com, a_record: null, result: NXDOMAIN}
+  github_org:
+    url: https://github.com/foreveroceans
+    status: 200
+    name: FOREVER OCEANS CORPORATION
+    public_repos: 0
+    created_at: '2024-04-03'
+    note: >-
+      Real, name-matched corporate GitHub organization, but it holds zero public
+      repositories and has not been touched since the day it was created. No spec,
+      SDK or proto is published there.
+  package_registries:
+  - {registry: npm, name: forever-oceans, status: 404}
+  - {registry: npm, name: foreveroceans, status: 404}
+  - {registry: pypi, name: forever-oceans, status: 404}
+  - {registry: rubygems, name: forever-oceans, status: 404}
+  - {registry: crates.io, name: forever-oceans, status: 403, note: registry rejected the unauthenticated probe}
