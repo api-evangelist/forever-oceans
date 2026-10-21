@@ -1,0 +1,53 @@
+edges:
+- partner_name: ASC (Aquaculture Stewardship Council) farm certification
+  partner: null
+  partner_match: register-name
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://asc-aqua.org/find-a-farm/
+  category: aquaculture farm certification
+  contract_reference:
+    register: ASC certified farms register (asc-aqua.org/find-a-farm/)
+    standard: ASC farm standards (Aquaculture Stewardship Council)
+    spec_file: null
+    role: asc-certificate-holder
+    registered_name: FOREVER OCEANS CORPORATION
+    register_country: PA
+    register_id:
+    - ASC01956
+    matched_domain: null
+    matched_by: register-name
+    signal_note: certified_products = one entry per ASC standard (species group), never per farm site or certificate;
+      a standard with no current certificate is lapsed; a holder with only in-audit / not-awarded certificates is
+      participation only
+    detected_by: sweep-aquaculture-seafood.py
+    detected: '2026-10-21'
+    certified_products:
+    - product: ASC Seriola and Cobia Standard certified farm
+      product_type: ASC Seriola and Cobia
+      lapsed: true
+      lapsed_note: 'no current certificate: Withdrawn'
+    register_name_note: register-name 'foreveroceans' = forever-oceans; no wikidata P856
+    identity_source: register-name
+    identity_note: register gave only the name; exact normalised match to the repo's apis.yml name, one repo, Wikidata
+      P856 not contradicting (Kin 2026-10-20 decision 2)
+  detected_by: sweep-aquaculture-seafood.py
+  first_seen: '2026-10-21'
+generated: '2026-10-21'
+method: searched
+source:
+- https://asc-aqua.org/find-a-farm/
+- https://www.bapcertification.org/Producers
+- https://fisheries.msc.org/
+- https://cert.msc.org/supplierdirectory
+- https://ourgssi.org/gssi-recognized-certifcation/
+- https://ourgssi.org/our-global-network/
+checked:
+- https://asc-aqua.org/find-a-farm/
+- https://cert.msc.org/supplierdirectory
+- https://fisheries.msc.org/
+- https://ourgssi.org/gssi-recognized-certifcation/
+- https://ourgssi.org/our-global-network/
+- https://www.bapcertification.org/Producers
